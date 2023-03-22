@@ -44,3 +44,9 @@ body {
         text-shadow: 30%;
         
     }
+
+    .logoCarrito{
+        color: rgb(7, 6, 6);
+        background-color: whitesmoke;
+        border-radius: 20%;
+    }
