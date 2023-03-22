@@ -13,7 +13,7 @@ function App () {
           <Route path='/' exact Component={Inicio}></Route>
           <Route path='/' exact Component={Items}></Route>
       </Routes>
-      <ItemListContainer/>
+      <ItemListContainer greeting="Hola Compañeros" />
 
     </div>
   )

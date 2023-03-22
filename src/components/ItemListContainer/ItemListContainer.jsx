@@ -1,10 +1,9 @@
 import React from 'react'
-import Title from '../Title'
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
   return (
     <div className='itemsListContainer'>
-      <Title greeting = "Daniel"/>
+      <h2> {props.greeting} </h2>
     </div>
   )
 }
