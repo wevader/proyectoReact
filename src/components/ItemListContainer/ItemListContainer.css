@@ -1,0 +1,14 @@
+body {
+  display: flexbox;
+  padding: 0;
+}
+
+.itemsListContainer {
+  background-image: url(./src/assets/videojuegos1.jpeg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  justify-content: center;
+  transition: all 0.4s;
+  color: whitesmoke;
+}/*# sourceMappingURL=ItemListContainer.css.map */

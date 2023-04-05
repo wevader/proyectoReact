@@ -1,21 +1,27 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import Items from './components/pages/Items'
-import Inicio from './components/pages/Inicio'
+import CartContent from './components/CartContent/CartContent'
+import AboutUS from './components/pages/AboutUs/AboutUS'
+import DataProvider from './components/Context/DataContext'
+import Home from './components/Home/Home'
+import Products from './components/pages/Products/Products'
 
 function App () {
   return (
-    <div className="App">
-      <NavBar/>
+    <DataProvider>
+    <div>
+    <NavBar/>
+    <ItemListContainer greeting="The Best Video Games Shop" />
       <Routes>
-          <Route path='/' exact Component={Inicio}></Route>
-          <Route path='/' exact Component={Items}></Route>
+          <Route path='/aboutus' element={<AboutUS/>}/>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/products' element={<Products/>}/>
+          <Route path='/cart' element={<CartContent/>}/>
       </Routes>
-      <ItemListContainer greeting="Hola Compañeros" />
-
     </div>
+    </DataProvider>
   )
 }
 

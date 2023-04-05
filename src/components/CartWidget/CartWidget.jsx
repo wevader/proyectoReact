@@ -1,4 +1,5 @@
-import React from 'react'
+import "./CartWidget.css"
+import { Link } from 'react-router-dom'
 
 export const CartWidget = () => {
 return (

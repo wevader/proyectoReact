@@ -1,0 +1,31 @@
+img{
+    width: 40%;
+    margin: 5px;
+}
+
+.buyButton{
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    border: 10px;
+    border-radius: 5%;
+    margin: 5px;
+}
+
+
+.card{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    width: 25%;
+}
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 20px;
+    padding: 40px 0;
+    margin: auto;
+}
