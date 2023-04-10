@@ -1,4 +1,7 @@
 import { useContext } from 'react'
+import { Jelly } from '@uiball/loaders'
+
+
 import { dataContext } from '../../Context/DataContext'
 import { Link } from 'react-router-dom'
 import "./Products.css"
@@ -15,6 +18,8 @@ const Products = () => {
         setDetail(newDetail)
     }
 
+
+if (data.length !== 0){
     return data.map((product)=> {
         return (
                 <div className="card" key={product.id}>
@@ -27,6 +32,14 @@ const Products = () => {
         
     )
 })
+
+
+} else{
+    return(
+        <Jelly size={80} speed={0.9} color="black" />
+    )
+}
+   
 }
 
 export default Products

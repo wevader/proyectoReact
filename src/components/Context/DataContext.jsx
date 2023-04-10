@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import axios from "axios";
+import stock from "../api/stock";
 
 export const dataContext = createContext();
 
@@ -8,8 +8,9 @@ const DataProvider = ( {children} ) => {
     const [cart, setCart] = useState([])
     const [detail, setDetail] = useState([])
 
+
     useEffect( () => {
-        axios("stock.json").then((res) => setData(res.data))
+        stock().then((res) => setData(res.data)).catch(err=>console.log(err)).finally(()=>console.log("Todo siempre al final"))
     }, [])
 
     const buyProducts = (product) => {

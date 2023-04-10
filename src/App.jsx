@@ -1,13 +1,16 @@
 import './App.css'
+
 import { Routes, Route, Navigate} from 'react-router-dom'
+
+
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import CartContent from './components/CartContent/CartContent'
 import AboutUS from './components/pages/AboutUs/AboutUS'
 import DataProvider from './components/Context/DataContext'
 import Home from './components/Home/Home'
-import Products from './components/pages/Products/Products'
 import ItemDetailContent from './components/pages/ItemDetailContent/ItemDetailContent'
+import Products from './components/pages/Products/Products'
 
 
 function App () {
