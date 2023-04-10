@@ -4,6 +4,7 @@ body {
 }
 
 .itemsListContainer {
+  display: flex;
   background-image: url(./src/assets/videojuegos1.jpeg);
   background-size: cover;
   background-position: center;

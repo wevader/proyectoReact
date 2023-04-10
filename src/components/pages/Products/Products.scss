@@ -1,5 +1,5 @@
 img{
-    width: 40%;
+    width: 50%;
     margin: 5px;
 }
 
@@ -23,8 +23,9 @@ img{
 
 .products{
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    width: 90%;
+    text-align: center;
     gap: 20px;
     padding: 40px 0;
     margin: auto;

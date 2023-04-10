@@ -1,9 +1,21 @@
+import { useContext } from "react"
+import { dataContext } from "../Context/DataContext"
+
+import CartElements from "./CartElements"
+import CartTotal from "./CartTotal"
+
 import "./CartContent.css"
+
 const CartContent = () => {
-return (
+  const {cart} = useContext(dataContext)
+
+return cart.length > 0 ? (
     <div className="cartContent">
-      <h1>cartContent</h1>
+      <CartElements/>
+      <CartTotal/>
     </div>
+) : (
+  <h2 className="emptyMessage">Your cart is empty</h2>
 )
 }
 

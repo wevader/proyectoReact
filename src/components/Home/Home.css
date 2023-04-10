@@ -1,3 +1,18 @@
 body {
+  display: flexbox;
   padding: 0;
+}
+
+.noticias {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  width: 60%;
+}
+
+img {
+  display: flex;
+  width: 30%;
+  border-radius: 5%;
+  border: 5px;
 }/*# sourceMappingURL=Home.css.map */

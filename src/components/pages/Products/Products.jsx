@@ -4,19 +4,26 @@ import { Link } from 'react-router-dom'
 import "./Products.css"
 
 const Products = () => {
-    const { data } = useContext(dataContext)
+    const { data, detail, setDetail} = useContext(dataContext)
+    
+    const detailProduct = (id) => {
+        const foundId = data.find((element) => element.id === id)
+
+        const newDetail = data.filter((element) => {
+            return element === foundId
+        })
+        setDetail(newDetail)
+    }
+
     return data.map((product)=> {
         return (
-        
-            <div className='products'>
-                <div className="card">
+                <div className="card" key={product.id}>
                     <img src={product.imagen} alt="img-product-card" />
-                    <h6> {product.nombre} </h6>
-                    <h7> {product.conexion} </h7>
-                    <h8> {product.precio} </h8>
-                    <button className='buyButton'>Buy</button>
+                    <h3> {product.nombre} </h3>
+                    <h5> $ {product.precio} </h5>
+                    <Link to= {`/detail/${product.id}`}  onClick={() => detailProduct(product.id)}><button  className='detailButton'>Detail</button></Link>
+                    
                 </div>
-            </div>
         
     )
 })

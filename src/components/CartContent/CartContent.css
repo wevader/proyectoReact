@@ -1,1 +1,12 @@
-/*# sourceMappingURL=CartContent.css.map */
+.cartContent {
+  display: flexbox;
+  justify-content: space-around;
+  text-align: center;
+  gap: 20px;
+  padding: 40px 0;
+  margin: auto;
+}
+
+.emptyMessage {
+  text-align: center;
+}/*# sourceMappingURL=CartContent.css.map */
