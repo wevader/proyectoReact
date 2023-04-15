@@ -23,8 +23,9 @@ function App () {
     <ItemListContainer greeting="The Best Video Games Shop" />
       <Routes>
           <Route path='/aboutus' element={<AboutUS/>}/>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/products' element={ <div className='products'> <Products/> </div>}/>
+          <Route path='/home' element={<Home/>}/>
+          <Route path='/' element={ <div className='products'> <Products/> </div>}/>
+          <Route path='/:cname' element={ <div className='products'> <Products/> </div>}/>
           <Route path='/cart' element={<CartContent/>}/>
           <Route path= '/detail/:pid' element={<ItemDetailContent/>}/>
 

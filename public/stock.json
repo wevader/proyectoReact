@@ -1,7 +1,8 @@
 [
     {
         "id": 1,
-        "nombre": "Mouse Razer",
+        "nombre": "Mouse",
+        "marca" : "Razer",
         "conexion":"Inalambrico",
         "iluminacion":"RBG",
         "precio": 590,
@@ -11,7 +12,8 @@
     },
     {
         "id": 2,
-        "nombre": "Mouse Logitech",
+        "nombre": "Mouse",
+        "marca" : "Logitech",
         "conexion":"Alambrico",
         "iluminacion":"Azul",
         "precio": 650,
@@ -21,7 +23,8 @@
     },
     {
         "id": 3,
-        "nombre": "Mouse HyperX",
+        "nombre": "Mouse",
+        "marca" : "HyperX",
         "conexion":"Inalambrico",
         "iluminacion":"RBG",
         "precio": 760,
@@ -32,7 +35,8 @@
     },
     {
         "id": 4,
-        "nombre": "Audifonos Razer",
+        "nombre": "Earphones",
+        "marca" : "Razer",
         "conexion":"Inalambrico",
         "iluminacion":"Rojo",
         "precio": 780,
@@ -43,7 +47,8 @@
     },
     {
         "id": 5,
-        "nombre": "Audifonos Logitech",
+        "nombre": "Earphones",
+        "marca" : "Logitech",
         "conexion":"Alambrico",
         "iluminacion":"RBG",
         "precio": 450,
@@ -54,7 +59,8 @@
     },
     {
         "id": 6,
-        "nombre": "Audifonos HyperX",
+        "nombre": "Earphones",
+        "marca" : "HyperX",
         "conexion":"Inalambrico",
         "iluminacion":"RBG",
         "precio": 810,

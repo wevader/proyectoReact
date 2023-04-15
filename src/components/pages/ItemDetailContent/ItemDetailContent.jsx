@@ -1,5 +1,3 @@
-import { useContext } from "react"
-import { dataContext } from "../../Context/DataContext"
 import ItemDetailElement from "./ItemDetailElement"
 
 
