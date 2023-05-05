@@ -3,7 +3,7 @@ import { dataContext } from "../Context/DataContext"
 
 
 const CartTotal = () => {
-    const {cart, } = useContext(dataContext)
+    const {cart} = useContext(dataContext)
 
     const total = cart.reduce((acc, elemt) => acc + (elemt.precio * elemt.cantidad), 0)
   return (

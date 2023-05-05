@@ -7,7 +7,7 @@ export const CartWidget = () => {
 
     const {cart} = useContext(dataContext)
 return (
-    <div class="logoCarrito">
+    <div className="logoCarrito">
         <i className="bi bi-cart"> {cart.length} </i>
     </div>
 )

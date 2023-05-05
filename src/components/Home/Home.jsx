@@ -7,7 +7,7 @@ const Home = () => {
       <section id="noticias" className="border-items">
       <div id="carouselExampleCaptions" className="carousel slide carouselslide" data-bs-ride="false">
         <div className="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active"
             aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
             aria-label="Slide 2"></button>
@@ -16,21 +16,21 @@ const Home = () => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-              <img src="../public/godofwar.jpg" className="d-block w-100" alt="noticia1" />
-            <div class="carousel-caption d-none d-md-block">
+              <img src="/godofwar.jpg" className="d-block w-100" alt="noticia1" />
+            <div className="carousel-caption d-none d-md-block">
               <h3>God of War: Ragnarok</h3>
               <p>Crítico fue blanco de amenazas y acoso por ponerle 6</p>
             </div>
           </div>
           <div className="carousel-item">
-            <img src="../public/callofduty.jpg" className="d-block w-100" alt="noticia2" />
+            <img src="/callofduty.jpg" className="d-block w-100" alt="noticia2" />
             <div className="carousel-caption d-none d-md-block">
               <h3>Call of Duty</h3>
               <p>Xbox ofreció mantener Call of Duty en PlayStation por 10 años</p>
             </div>
           </div>
           <div className="carousel-item">
-            <img src="../public/nintendonx.jpg" className="d-block w-100" alt="noticia3" />
+            <img src="/nintendonx.jpg" className="d-block w-100" alt="noticia3" />
               
             <div className="carousel-caption d-none d-md-block">
               <h3>Nintendo</h3>

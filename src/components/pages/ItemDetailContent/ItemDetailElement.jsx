@@ -1,10 +1,17 @@
-import { useContext } from "react"
+import { memo, useContext, useState } from "react"
 import { dataContext } from "../../Context/DataContext"
+import ButtonChange from "./ButtonChange"
+
 
 const ItemDetailElement = () => {
     const { detail, buyProducts } = useContext(dataContext)
+    const [inputType, setInputType] = useState("button")
+
+    const handleInter = () => {
+        setInputType("input")
+    }
+
     
-console.log("hola")
     return detail.map((product) => {
         return (
             <div className="card" key={product.id}>
@@ -14,7 +21,11 @@ console.log("hola")
                     <h4> {product.conexion} </h4>
                     <h4> {product.iluminacion} </h4>
                     <h5> $ {product.precio * product.cantidad} </h5>
-                    <button onClick={ () => buyProducts(product)} className='buyButton'>Buy</button>
+                    {
+                        inputType === "button" ? 
+                        <button onClick={ () => { buyProducts(product), handleInter()}} className='buyButton'>Add Cart</button> : <ButtonChange/>
+                    }
+                    
             </div>
         )
         

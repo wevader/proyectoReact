@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { dataContext } from "../Context/DataContext"
 
 import CartItemCounter from "./CartItemCounter"
@@ -20,9 +20,11 @@ const CartElements = () => {
                 <img src={product.imagen} alt="img-product-card" />
                     <h3> {product.nombre} </h3>
                     <h4> {product.conexion} </h4>
+                    <h4> {product.marca} </h4>
+                    <h4> {product.iluminacion} </h4>
                     <CartItemCounter product= {product} />
                     <h5> $ {product.precio * product.cantidad} </h5>
-                    <h3 onClick={()=> deleteProduct(product.id)} >🗑</h3>
+                    <h3 className="delete" onClick={()=> deleteProduct(product.id)} >🗑</h3>
             </div>
         )
         

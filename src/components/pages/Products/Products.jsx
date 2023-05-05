@@ -1,18 +1,17 @@
-import { useContext, useEffect, useState } from 'react'
-import { Jelly } from '@uiball/loaders'
+import { memo, useContext, useEffect, useState } from 'react'
 import axios from "axios"
 const json = "stock.json"
 
 import { dataContext } from '../../Context/DataContext'
 import { Link, useParams } from 'react-router-dom'
 import "./Products.css"
+import Loading from '../../Loading/Loading'
 
-const Products = () => {
+const Products = memo (() => {
 
     const [data, setData] = useState([])
     const {detailProduct} = useContext(dataContext)
     const {cname, pid} = useParams()
-    console.log(cname)
 
     useEffect( () => {
         
@@ -22,10 +21,12 @@ const Products = () => {
                 setTimeout (()=>{
                     async function getStock(){
                         const res= await axios.get(json)
-                        setData(res.data.filter(prod => prod.nombre === cname))  
+                        .then(res => setData(res.data.filter(prod => prod.nombre === cname)))
+                        .catch(err => console.log(err))                 
                     }
                 getStock()
-                }, 2000)
+                
+                }, 1000)
                 
             })
             
@@ -35,11 +36,12 @@ const Products = () => {
             new Promise ((res, rej) => {
                 setTimeout (()=>{
                     async function getStock(){
-                        const res= await axios.get(json)
-                        setData(res.data) 
+                        const res= await axios.get(json) 
+                        .then(res => setData(res.data))
+                        .catch(err => console.log(err))
                     }
                 getStock()
-                }, 2000)
+                }, 3000)
                 
             })
             }
@@ -63,10 +65,10 @@ if (data.length !== 0){
 
 } else{
     return(
-        <Jelly size={80} speed={0.9} color="black" />
+        <Loading/>
     )
 }
    
-}
+})
 
 export default Products

@@ -1,4 +1,5 @@
 import ItemDetailElement from "./ItemDetailElement"
+import "./ItemDetailContent.css"
 
 
 const ItemDetailContent = () => {

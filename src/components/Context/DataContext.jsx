@@ -9,6 +9,7 @@ const DataProvider = ( {children} ) => {
     const [data, setData] = useState([])
     const [cart, setCart] = useState([])
     const [detail, setDetail] = useState([])
+    
 
     useEffect( () => {
         

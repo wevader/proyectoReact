@@ -11,7 +11,9 @@ const CartContent = () => {
 
 return cart.length > 0 ? (
     <div className="cartContent">
-      <CartElements/>
+      < div className="cartElement" >
+        <CartElements/>
+      </div>
       <CartTotal/>
     </div>
 ) : (

@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { dataContext } from "../Context/DataContext"
 
+import "./CartContent.css"
+
 const CartItemCounter = ( {product} ) => {
     const {cart, setCart, buyProducts} = useContext(dataContext)
 
@@ -15,10 +17,10 @@ const CartItemCounter = ( {product} ) => {
 
     
 return (
-    <div>
-        <p className="counter-button" onClick={decrese}>-</p>
-        <p> {product.cantidad} </p>
-        <p className="counter-button" onClick={()=> buyProducts(product)}>+</p>
+    <div className="counter">
+        <button className="counter-button" onClick={decrese}>-</button>
+        <p className="number"> {product.cantidad} </p>
+        <button className="counter-button" onClick={()=> buyProducts(product)}>+</button>
     </div>
 )
 }
