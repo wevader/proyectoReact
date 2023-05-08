@@ -62,6 +62,7 @@ const DataProvider = ( {children} ) => {
             .then(resp => setId (resp.id))
             .catch(err=> console.log(err))
             .finally(()=> console.log("Gracias por su compra"))
+            setCart([])
             
         
       } 
