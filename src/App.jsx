@@ -11,6 +11,7 @@ import DataProvider from './components/Context/DataContext'
 import Home from './components/Home/Home'
 import ItemDetailContent from './components/pages/ItemDetailContent/ItemDetailContent'
 import Products from './components/pages/Products/Products'
+import CheckOutContent from './components/CheckOut/CheckOutContent'
 
 
 function App () {
@@ -28,6 +29,7 @@ function App () {
           <Route path='/:cname' element={ <div className='products'> <Products/> </div>}/>
           <Route path='/cart' element={<CartContent/>}/>
           <Route path= '/detail/:pid' element={<ItemDetailContent/>}/>
+          <Route path= '/CheckOutContent' element={<CheckOutContent/>}/>
 
           <Route path='*' element={Navigate} to = "/" />
           

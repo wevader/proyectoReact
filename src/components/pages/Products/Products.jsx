@@ -1,6 +1,5 @@
 import { memo, useContext, useEffect, useState } from 'react'
-import axios from "axios"
-const json = "stock.json"
+import {collection, getDocs, getFirestore, where, query} from "firebase/firestore"
 
 import { dataContext } from '../../Context/DataContext'
 import { Link, useParams } from 'react-router-dom'
@@ -11,41 +10,32 @@ const Products = memo (() => {
 
     const [data, setData] = useState([])
     const {detailProduct} = useContext(dataContext)
-    const {cname, pid} = useParams()
+    const {cname} = useParams()
+
 
     useEffect( () => {
-        
-        if (cname){
-            
-            new Promise ((res, rej) => {
-                setTimeout (()=>{
-                    async function getStock(){
-                        const res= await axios.get(json)
-                        .then(res => setData(res.data.filter(prod => prod.nombre === cname)))
-                        .catch(err => console.log(err))                 
-                    }
-                getStock()
+        const db= getFirestore()
+        const queryCollection = collection(db, "productos")  
+        if (!cname){
+            getDocs(queryCollection)
+            .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data()}))))
+            .catch (err => console.log(err))
+            .finally(()=> console.log(data))
+    }
                 
-                }, 1000)
-                
-            })
-            
-            
-     
-        } else{
-            new Promise ((res, rej) => {
-                setTimeout (()=>{
-                    async function getStock(){
-                        const res= await axios.get(json) 
-                        .then(res => setData(res.data))
-                        .catch(err => console.log(err))
-                    }
-                getStock()
-                }, 3000)
-                
-            })
+
+
+        else{
+
+            const queryFilter = query(queryCollection, 
+            where("nombre", "==", cname) )
+            getDocs(queryFilter)
+            .then(res =>setData( res.docs.map(product => ({id: product.id, ...product.data()}))))    
+            .catch (err => console.log(err))    
+            .finally(()=> console.log(data))        
             }
             }, [cname])
+            
 
 if (data.length !== 0){
     return data.map((product)=> {

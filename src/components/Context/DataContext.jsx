@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect} from "react";
-import axios from "axios";
-const json = "stock.json"
+import {collection, addDoc, getDocs, getFirestore} from "firebase/firestore"
 
 
 export const dataContext = createContext();
@@ -9,24 +8,25 @@ const DataProvider = ( {children} ) => {
     const [data, setData] = useState([])
     const [cart, setCart] = useState([])
     const [detail, setDetail] = useState([])
+    const [orders, setOrders] = useState ([])
+    const [id, setId] = useState(null)
+    const [formData, setFormData] = useState(
+        {
+            name: "",
+            phone: "",
+            email: ""
+        }
+    )
     
 
     useEffect( () => {
-        
-            
-        new Promise ((res, rej) => {
-            setTimeout (()=>{
-                async function getStock(){
-                    const res= await axios.get(json)
-                    setData(res.data) 
-                }
-            getStock()
-            }, 2000)
-            
-        })
-        }, [])
-    
-    
+                
+        const db= getFirestore()
+        const queryCollection = collection(db, "productos")
+        getDocs(queryCollection)
+        .then(resp => setData(resp.docs.map(product => ({id: product.id, ...product.data()}))))
+        .catch (err => console.log(err))
+},[])
 
     const buyProducts = (product) => {
         const productRepeat = cart.find((item) => item.id === product.id)
@@ -48,8 +48,27 @@ const DataProvider = ( {children} ) => {
         setDetail(newDetail)
     }
 
+    const handleBuy = async() => {
+
+        const order ={
+          buyer: formData,
+          items: cart.map(({id, nombre, precio, cantidad}) => ({id, nombre, precio, cantidad})),
+          total: total
+        }
+            const db = getFirestore()
+            const queryCollection = collection(db, "orders")
+            setOrders(order)
+            addDoc(queryCollection, order)
+            .then(resp => setId (resp.id))
+            .catch(err=> console.log(err))
+            .finally(()=> console.log("Gracias por su compra"))
+            
+        
+      } 
+
+      const total = cart.reduce((acc, elemt) => acc + (elemt.precio * elemt.cantidad), 0)
      
-    return <dataContext.Provider value={{cart, detail, setCart, buyProducts, setDetail, detailProduct}}>{children}</dataContext.Provider>
+    return <dataContext.Provider value={{cart, detail, id, total, formData, orders, setFormData, setCart, buyProducts, setDetail, detailProduct, handleBuy}}>{children}</dataContext.Provider>
 }
 
 

@@ -15,8 +15,9 @@ return cart.length > 0 ? (
         <CartElements/>
       </div>
       <CartTotal/>
+
     </div>
-) : (
+): (
   <h2 className="emptyMessage">Your cart is empty</h2>
 )
 }
